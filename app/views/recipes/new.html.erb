@@ -1,18 +1,19 @@
 <%= render "layouts/header" %>
 
-<div class = "container">
+<div class = "container mt-2">
   <%= simple_form_for @recipe do |f| %>
+  <div class = "container mt-2">
     <%= f.input :name%>
     <%= f.input :sort, collection: Recipe.recipe_sorts, label: "Type" %>
     <%= f.input :instructions, size: "30x8" %>
-
+  </div>
     <%= f.simple_fields_for :ingredients do |i| %>
     <%= i.association :product %>
     <%= i.input :amount %>
-    <%= link_to_remove_association button_tag("Remove Ingredient", type: "button", class: "btn btn-danger"), f %>
+    <%= link_to_remove_association button_tag("Remove Ingredient", type: "button", class: "btn btn-sm btn-danger"), f %>
     <% end %>
 
-    <%= link_to_add_association button_tag("Add Ingredient", type: "button", class: "btn btn-success"), f, :ingredients %>
-    <%= f.submit class: "btn btn-primary btn-md" %>
+    <%= link_to_add_association button_tag("Add Ingredient", type: "button", class: "btn btn-primary"), f, :ingredients %>
+    <%= f.submit class: "btn btn-success btn-md" %>
   <% end %>
 </div>
