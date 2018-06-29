@@ -1,0 +1,108 @@
+<%= render "layouts/header" %>
+<div class = "container float-left">
+  <div class = "row">
+    <div class = " col-sm-2">
+      <table class = "table table-sm">
+        <thead>
+          <tr class = "row">
+            <th > Name
+            <th > Value
+          </tr>
+        </thead>
+        <tbody>
+          <tr class = "row">
+            <td > Recipe ID
+            <td > <%= @recipe.id %>
+          </tr>
+
+          <tr class = "row">
+            <td> Name
+            <td> <%= @recipe.name %>
+          </tr>
+
+          <tr class = "row">
+            <td> Type
+            <td> <%= @recipe.sort %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class = " col-sm-2">
+      <table class = "table table-sm">
+        <thead>
+          <tr class = "row">
+            <th> Ingredient
+            <th> Amount
+          </tr>
+        </thead>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <tr class = "row">
+            <td><%= ingredient.product.name %>
+            <td><%= ingredient.amount %>
+        </tr>
+        <%end%>
+        </table>
+    </div>
+
+    <div class = "col-sm-2">
+      <table class = "table table-condensed table-sm">
+        <thead>
+          <tr class = "row">
+            <th> Nutrition
+            <th> Value/100g
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class = "row">
+            <td> Kcal
+            <td> <%= @recipe.nutrition.kcal %>
+          </tr>
+
+          <tr class = "row">
+            <td> Fat
+            <td> <%= @recipe.nutrition.fat %>
+          </tr>
+
+          <tr class = "row">
+            <td> Carbs
+            <td> <%= @recipe.nutrition.carbs %>
+          </tr>
+
+          <tr class = "row">
+            <td> Sugar
+            <td> <%= @recipe.nutrition.sugar %>
+          </tr>
+
+          <tr class = "row">
+            <td> Protein
+            <td> <%= @recipe.nutrition.protein %>
+          </tr>
+
+          <tr class = "row">
+            <td> Fiber
+            <td> <%= @recipe.nutrition.fiber %>
+          </tr>
+
+          <tr class = "row">
+            <td> Salt
+            <td> <%= @recipe.nutrition.salt %>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class = "col-6 media">
+      <div class="media-body">
+        <h5>Instructions<h5>
+        <%= @recipe.instructions %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class = "pr-2"><%= link_to "Back", recipes_path %></div>
+  <div class = "pr-2"><%= link_to "Edit", edit_recipe_path %></div>
+  <div class = "pr-2"><%= link_to "Delete",   recipe_path(@recipe), method: :delete %></div>
+</div>

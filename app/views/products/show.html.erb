@@ -1,0 +1,80 @@
+<%= render "layouts/header" %>
+<div class = "container float-left">
+  <table class = "table table-sm">
+    <thead>
+      <tr class = "row">
+        <th class = "col-1"> Name
+        <th class = "col-1"> Value
+      </tr>
+    </thead>
+    <tbody>
+      <tr class = "row">
+        <td class = "col-1"> Product ID
+        <td class = "col-1"> <%= @product.id %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Name
+        <td class = "col-1"> <%= @product.name %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Unit
+        <td class = "col-1"> <%= @product.unit %>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class = "table table-condensed table-sm">
+    <thead>
+      <tr class = "row">
+        <th class = "col-1"> Nutrition
+        <th class = "col-2"> Value/100g
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class = "row">
+        <td class = "col-1"> Kcal
+        <td class = "col-2"> <%= @product.nutrition.kcal %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Fat
+        <td class = "col-2"> <%= @product.nutrition.fat %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Carbs
+        <td class = "col-2"> <%= @product.nutrition.carbs %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Sugar
+        <td class = "col-2"> <%= @product.nutrition.sugar %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Protein
+        <td class = "col-2"> <%= @product.nutrition.protein %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Fiber
+        <td class = "col-2"> <%= @product.nutrition.fiber %>
+      </tr>
+
+      <tr class = "row">
+        <td class = "col-1"> Salt
+        <td class = "col-2"> <%= @product.nutrition.salt %>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class = "row">
+    <div class = "col-1"><%= link_to "Back", products_path %></div>
+    <div class = "col-1"><%= link_to "Edit", edit_product_path %></div>
+    <div class = "col-1"><%= link_to "Delete",   product_path(@product), method: :delete %></div>
+  </div>
+</div>

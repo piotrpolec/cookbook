@@ -1,0 +1,12 @@
+<%= render "layouts/header" %>
+
+<%= form_for @product do |f| %>
+
+  <%= f.label(:name, "name") %>
+  <%= f.text_field :name %> <br/>
+
+  <%= f.label(:unit, "Unit") %>
+  <%= f.text_field :unit %> <br/>
+
+  <%= f.submit "Edit" %>
+<% end %>

@@ -1,0 +1,15 @@
+<%= render "layouts/header" %>
+<table class = "table table-condensed table-hover border border-dark">
+  <tr>
+    <th> Name
+    <th> Sort
+    <th> Full Recipe
+  </tr>
+<% @recipes.each do |recipe|%>
+<tr>
+<td><%= recipe.name%>
+<td><%= recipe.sort %>
+<td><%= link_to "Show recipe", recipe_path(recipe) %> <br/>
+</tr>
+<% end %>
+</table>

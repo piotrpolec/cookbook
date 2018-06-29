@@ -1,0 +1,15 @@
+<%= render "layouts/header" %>
+
+  <%= simple_form_for @recipe do |f| %>
+
+    <%= f.input :name%>
+    <%= f.input :sort, label: "Type" %>
+    <%= f.input :instructions, size: "30x8" %>
+
+    <%= f.association :ingredients do |i| %>
+      <%= i.association :product, required: false  %>
+      <%= i.input :amount, input_html: {value: i.object.amount || 'nil'} %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</body>
